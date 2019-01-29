@@ -58,15 +58,16 @@ def main():
     res_types = [r[0] for r in res]
 
     args = [
-        ('oyaml', '-o=yaml', ['g'], ['owide', 'ojson', 'sl']),
-        ('owide', '-o=wide', ['g'], ['oyaml', 'ojson']),
-        ('ojson', '-o=json', ['g'], ['owide', 'oyaml', 'sl']),
+        ('oyaml', '-o=yaml', ['g'], ['oname', 'owide', 'ojson', 'sl']),
+        ('owide', '-o=wide', ['g'], ['oname', 'oyaml', 'ojson']),
+        ('ojson', '-o=json', ['g'], ['oname', 'owide', 'oyaml', 'sl']),
+        ('oname', '-o=name', ['g'], ['owide', 'ojson', 'oyaml', 'sl']),
         ('all', '--all-namespaces', ['g', 'd'], ['rm', 'f', 'no', 'sys'
          ]),
-        ('sl', '--show-labels', ['g'], ['oyaml', 'ojson']
+        ('sl', '--show-labels', ['g'], ['oname', 'oyaml', 'ojson']
          + diff(res_types, ['po', 'dep'])),
         ('all', '--all', ['rm'], None), # caution: reusing the alias
-        ('w', '--watch', ['g'], ['oyaml', 'ojson', 'owide']),
+        ('w', '--watch', ['g'], ['oname', 'oyaml', 'ojson', 'owide']),
         ]
 
     # these accept a value, so they need to be at the end and
