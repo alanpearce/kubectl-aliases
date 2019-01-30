@@ -26,15 +26,15 @@ alias kgwf='kubectl get --watch -f'
 ...
 ```
 
-See [the full list](.kubectl_aliases).
+See [the full list](kubectl-aliases.plugin.zsh).
 
 ### Installation
 
-You can directly download the [`.kubectl_aliases` file](https://rawgit.com/ahmetb/kubectl-alias/master/.kubectl_aliases)
+You can directly download the [`kubectl-aliases.plugin.zsh` file](https://rawgit.com/ahmetb/kubectl-alias/master/kubectl-aliases.plugin.zsh)
 and save it in your $HOME directory, then edit your .bashrc/.zshrc file with:
 
 ```sh
-[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+[ -f ~/kubectl-aliases.plugin.zsh ] && source ~/kubectl-aliases.plugin.zsh
 ```
 
 **Print the full command before running it:** Add this to your `.bashrc` or
