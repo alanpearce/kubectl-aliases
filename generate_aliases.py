@@ -30,13 +30,11 @@ def main():
     # (alias, full, allow_when_oneof, incompatible_with)
     cmds = [('k', 'kubectl', None, None)]
 
-    globs = [('sys', '--namespace=kube-system', None, ['sys'])]
-
     ops = [
         ('a', 'apply --recursive -f', None, None),
         ('ex', 'exec -i -t', None, None),
         ('lo', 'logs -f', None, None),
-        ('p', 'proxy', None, ['sys']),
+        ('p', 'proxy', None, None),
         ('g', 'get', None, None),
         ('t', 'top', None, None),
         ('d', 'describe', None, None),
@@ -51,8 +49,8 @@ def main():
         ('ing', 'ingress', ['g', 'd', 'rm'], None),
         ('cm', 'configmap', ['g', 'd', 'rm'], None),
         ('sec', 'secret', ['g', 'd', 'rm'], None),
-        ('no', 'nodes', ['g', 'd', 't'], ['sys']),
-        ('ns', 'namespaces', ['g', 'd', 'rm'], ['sys']),
+        ('no', 'nodes', ['g', 'd', 't'], None),
+        ('ns', 'namespaces', ['g', 'd', 'rm'], None),
         ('pv', 'persistentvolume', ['g', 'd', 'rm'], None),
         ('pvc', 'persistentvolumeclaim', ['g', 'd', 'rm'], None),
         ]
@@ -63,8 +61,7 @@ def main():
         ('owide', '-o=wide', ['g'], ['oname', 'oyaml', 'ojson']),
         ('ojson', '-o=json', ['g'], ['oname', 'owide', 'oyaml', 'sl']),
         ('oname', '-o=name', ['g'], ['owide', 'ojson', 'oyaml', 'sl']),
-        ('all', '--all-namespaces', ['g', 'd'], ['rm', 'f', 'no', 'sys'
-         ]),
+        ('all', '--all-namespaces', ['g', 'd'], ['rm', 'f', 'no' ]),
         ('sl', '--show-labels', ['g'], ['oname', 'oyaml', 'ojson']
          + diff(res_types, ['po', 'dep'])),
         ('all', '--all', ['rm'], None), # caution: reusing the alias
@@ -74,14 +71,13 @@ def main():
     # these accept a value, so they need to be at the end and
     # mutually exclusive within each other.
     positional_args = [('f', '--recursive -f', ['g', 'd', 'rm'], res_types + ['all'
-                       , 'l', 'sys']), ('l', '-l', ['g', 'd', 'rm'], ['f',
+                       , 'l']), ('l', '-l', ['g', 'd', 'rm'], ['f',
                        'all']), ('n', '--namespace', ['g', 'd', 'rm',
-                       'lo', 'ex'], ['ns', 'no', 'sys', 'all'])]
+                       'lo', 'ex'], ['ns', 'no', 'all'])]
 
     # [(part, optional, take_exactly_one)]
     parts = [
         (cmds, False, True),
-        (globs, True, False),
         (ops, True, True),
         (res, True, True),
         (args, True, False),
