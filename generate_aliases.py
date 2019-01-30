@@ -74,8 +74,7 @@ def main():
     # mutually exclusive within each other.
     positional_args = [('f', '--recursive -f', ['g', 'd', 'rm'], res_types + ['all'
                        , 'l']), ('l', '-l', ['g', 'd', 'rm'], ['f',
-                       'all']), ('n', '--namespace', ['g', 'd', 'rm',
-                       'lo', 'ex'], ['ns', 'no', 'all'])]
+                       'all'])]
 
     # [(part, optional, take_exactly_one)]
     parts = [
