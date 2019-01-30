@@ -5,14 +5,12 @@ convenient kubectl aliases programmatically.
 
 ### Examples
 
-Some of the 800 generated aliases are:
+Some of the generated aliases are:
 
 ```sh
 alias k='kubectl'
 alias kg='kubectl get'
 alias kgpo='kubectl get pod'
-
-alias ksysgpo='kubectl --namespace=kube-system get pod'
 
 alias krm='kubectl delete'
 alias krmf='kubectl delete -f'
@@ -54,22 +52,24 @@ function kubectl() { echo "+ kubectl $@"; command kubectl $@; }
   * **`g`**=`get`
   * **`d`**=`describe`
   * **`rm`**=`delete`
+  * **`t`**=`top`
   * **`a`**:`apply -f`
   * **`ex`**: `exec -i -t`
   * **`lo`**: `logs -f`
 * resources:
   * **`po`**=pod, **`dep`**=`deployment`, **`ing`**=`ingress`,
     **`svc`**=`service`, **`cm`**=`configmap`, **`sec`=`secret`**,
-    **`ns`**=`namespace`, **`no`**=`node`
+    **`ns`**=`namespace`, **`no`**=`node`, **`pv`=`persistentvolume`**
+    **`pvc`**=`persistentvolumeclaim`**
 * flags:
-  * output format: **`oyaml`**, **`ojson`**, **`owide`**
+  * output format: **`oyaml`**, **`ojson`**, **`owide`**, **`oname`**
   * **`all`**: `--all` or `--all-namespaces` depending on the command
   * **`sl`**: `--show-labels`
   * **`w`**=`-w/--watch`
 * value flags (should be at the end):
   * **`f`**=`-f/--filename`
   * **`l`**=`-l/--selector`
-  
+
 ### FAQ
 
 **Does this not slow down my shell start up?** Sourcing the file that contains
@@ -80,7 +80,5 @@ command yourself in your .bashrc/.zshrc.
 ### Authors
 
 - [@ahmetb](https://twitter.com/ahmetb)
+- [Alan Pearce](https://www.alanpearce.eu)
 
------
-
-This is not an official Google project.
