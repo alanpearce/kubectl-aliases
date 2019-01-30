@@ -38,19 +38,20 @@ def main():
         ('lo', 'logs -f', None, None),
         ('p', 'proxy', None, ['sys']),
         ('g', 'get', None, None),
+        ('t', 'top', None, None),
         ('d', 'describe', None, None),
         ('rm', 'delete', None, None),
         ('run', 'run --rm --restart=Never --image-pull-policy=IfNotPresent -i -t', None, None),
         ]
 
     res = [
-        ('po', 'pods', ['g', 'd', 'rm'], None),
+        ('po', 'pods', ['g', 'd', 't', 'rm'], None),
         ('dep', 'deployment', ['g', 'd', 'rm'], None),
         ('svc', 'service', ['g', 'd', 'rm'], None),
         ('ing', 'ingress', ['g', 'd', 'rm'], None),
         ('cm', 'configmap', ['g', 'd', 'rm'], None),
         ('sec', 'secret', ['g', 'd', 'rm'], None),
-        ('no', 'nodes', ['g', 'd'], ['sys']),
+        ('no', 'nodes', ['g', 'd', 't'], ['sys']),
         ('ns', 'namespaces', ['g', 'd', 'rm'], ['sys']),
         ('pv', 'persistentvolume', ['g', 'd', 'rm'], None),
         ('pvc', 'persistentvolumeclaim', ['g', 'd', 'rm'], None),
