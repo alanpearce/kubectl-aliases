@@ -50,6 +50,8 @@ def main():
         ('ing', 'ingress', ['g', 'd', 'rm'], None),
         ('cm', 'configmap', ['g', 'd', 'rm'], None),
         ('sec', 'secret', ['g', 'd', 'rm'], None),
+        ('jo', 'jobs', ['g', 'd', 'rm'], None),
+        ('cjo', 'cronjobs', ['g', 'd', 'rm'], None),
         ('no', 'nodes', ['g', 'd', 't'], None),
         ('ns', 'namespaces', ['g', 'd', 'rm'], None),
         ('pv', 'persistentvolume', ['g', 'd', 'rm'], None),
