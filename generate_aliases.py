@@ -55,6 +55,7 @@ def main():
         ('cjo', 'cronjobs', ['g', 'd', 'rm'], None),
         ('no', 'nodes', ['g', 'd', 't'], None),
         ('ns', 'namespaces', ['g', 'd', 'rm'], None),
+        ('pdb', 'poddisruptionbudget', ['g', 'd', 'rm'], None),
         ('pv', 'persistentvolume', ['g', 'd', 'rm'], None),
         ('pvc', 'persistentvolumeclaim', ['g', 'd', 'rm'], None),
 	('ss', 'statefulset', ['g', 'd', 'rm'], None),
