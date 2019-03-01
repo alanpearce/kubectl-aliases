@@ -76,9 +76,11 @@ def main():
 
     # these accept a value, so they need to be at the end and
     # mutually exclusive within each other.
-    positional_args = [('f', '--recursive -f', ['g', 'd', 'rm'], res_types + ['all'
-                       , 'l']), ('l', '-l', ['g', 'd', 'rm'], ['f',
-                       'all'])]
+    positional_args = [
+            ('f', '--recursive -f', ['g', 'd', 'rm'], res_types + ['all' , 'l']),
+            ('l', '-l', ['g', 'd', 'rm'], ['f', 'all']),
+            ('r', '-l release=$kubectl_release', ['g', 'd', 'rm'], ['f', 'all'])
+    ]
 
     # [(part, optional, take_exactly_one)]
     parts = [
