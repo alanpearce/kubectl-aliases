@@ -67,7 +67,7 @@ def main():
         ('owide', '-o=wide', ['g'], ['oname', 'oyaml', 'ojson']),
         ('ojson', '-o=json', ['g'], ['oname', 'owide', 'oyaml', 'sl']),
         ('oname', '-o=name', ['g'], ['owide', 'ojson', 'oyaml', 'sl']),
-        ('all', '--all-namespaces', ['g', 'd'], ['rm', 'f', 'no' ]),
+        ('all', '--all-namespaces', ['g', 'd', 't'], ['rm', 'f', 'no' ]),
         ('sl', '--show-labels', ['g'], ['oname', 'oyaml', 'ojson']
          + diff(res_types, ['po', 'dep'])),
         ('all', '--all', ['rm'], None), # caution: reusing the alias
