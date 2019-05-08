@@ -58,6 +58,7 @@ def main():
         ('pdb', 'poddisruptionbudget', ['g', 'd', 'rm'], None),
         ('pv', 'persistentvolume', ['g', 'd', 'rm'], None),
         ('pvc', 'persistentvolumeclaim', ['g', 'd', 'rm'], None),
+	('ss', 'serviceaccount', ['g', 'd', 'rm'], None),
 	('ss', 'statefulset', ['g', 'd', 'rm'], None),
         ]
     res_types = [r[0] for r in res]
