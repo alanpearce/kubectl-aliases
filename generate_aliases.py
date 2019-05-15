@@ -72,15 +72,14 @@ def main():
         ('sl', '--show-labels', ['g'], ['oname', 'oyaml', 'ojson']
          + diff(res_types, ['po', 'dep'])),
         ('all', '--all', ['rm'], None), # caution: reusing the alias
-        ('w', '--watch', ['g'], ['oname', 'oyaml', 'ojson', 'owide']),
-        ]
+        ('r', '-l release=$kubectl_release', ['g', 'd', 'rm'], ['f', 'all'])
+    ]
 
     # these accept a value, so they need to be at the end and
     # mutually exclusive within each other.
     positional_args = [
-            ('f', '--recursive -f', ['g', 'd', 'rm'], res_types + ['all' , 'l']),
-            ('l', '-l', ['g', 'd', 'rm'], ['f', 'all']),
-            ('r', '-l release=$kubectl_release', ['g', 'd', 'rm'], ['f', 'all'])
+        ('w', '--watch', ['g'], ['oname', 'oyaml', 'ojson', 'owide']),
+        ('l', '-l', ['g', 'd', 'rm'], ['r', 'f', 'all']),
     ]
 
     # [(part, optional, take_exactly_one)]
