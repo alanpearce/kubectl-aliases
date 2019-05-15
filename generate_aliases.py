@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # Copyright 2017 Google Inc.
@@ -51,6 +51,9 @@ def main():
         ('svc', 'service', ['g', 'd', 'rm'], None),
         ('ing', 'ingress', ['g', 'd', 'rm'], None),
         ('cm', 'configmap', ['g', 'd', 'rm'], None),
+        ('cr', 'clusterrole', ['g', 'd', 'rm'], None),
+        ('crb', 'clusterrolebinding', ['g', 'd', 'rm'], None),
+        ('crd', 'customresourcedefinition', ['g', 'd', 'rm'], None),
         ('sec', 'secret', ['g', 'd', 'rm'], None),
         ('jo', 'jobs', ['g', 'd', 'rm'], None),
         ('cjo', 'cronjobs', ['g', 'd', 'rm'], None),
@@ -59,6 +62,7 @@ def main():
         ('pdb', 'poddisruptionbudget', ['g', 'd', 'rm'], None),
         ('pv', 'persistentvolume', ['g', 'd', 'rm'], None),
         ('pvc', 'persistentvolumeclaim', ['g', 'd', 'rm'], None),
+	('ss', 'serviceaccount', ['g', 'd', 'rm'], None),
 	('ss', 'statefulset', ['g', 'd', 'rm'], None),
         ]
     res_types = [r[0] for r in res]
