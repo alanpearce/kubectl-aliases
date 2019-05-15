@@ -91,9 +91,6 @@ def main():
         (positional_args, True, True),
         ]
 
-    out = gen(parts)
-    out = filter(is_valid, out)
-
     # prepare output
     if not sys.stdout.isatty():
         header_path = \
@@ -101,10 +98,60 @@ def main():
                          'license_header')
         with open(header_path, 'r') as f:
             print(f.read())
-    for cmd in out:
+    for cmd in generate(cmds, ops, res, args, positional_args):
         print("alias {}='{}'".format(''.join([a[0] for a in cmd]),
               ' '.join([a[1] for a in cmd])))
 
+def generate(cmds, ops, resources, args, positional_args):
+    for cmd in cmds:
+        yield [cmd]
+        for op in ops:
+            yield [cmd, op]
+            for res in resources:
+                if check_requirements([op], res[2]):
+                    yield [cmd, op, res]
+                    for cset in combinations(args, len(args), include_0=False):
+                        for combo in cset:
+                            segment = list(combo)
+                            if is_valid([cmd, op, res] + segment):
+                                for pa in positional_args:
+                                    if is_valid([cmd, op, res] + segment + [pa]):
+                                        yield [cmd, op, res] + segment + [pa]
+                    for arg in args:
+                        # permutations?
+                        if is_compatible([op, res], arg[2], arg[3]):
+                            yield [cmd, op, res, arg]
+
+def is_compatible(parents, requirements, incompatibilities):
+    return check_requirements(parents, requirements) and check_incompatibilities(parents, incompatibilities)
+
+def check_requirements(parents, requirements):
+    if requirements:
+        found = False
+        for r in requirements:
+            for p in parents:
+                if p[0] == r:
+                    found = True
+                    break
+            if found:
+                break
+        if not found:
+            return False
+    return True
+
+def check_incompatibilities(parents, incompatibilities):
+    if incompatibilities:
+        found = False
+        for inc in incompatibilities:
+            for p in parents:
+                if p[0] == inc:
+                    found = True
+                    break
+            if found:
+                break
+        if found:
+            return False
+    return True
 
 def gen(parts):
     out = [()]
@@ -130,10 +177,10 @@ def gen(parts):
         new_out = []
         for segment in combos:
             for stuff in orig:
-                new_out.append(stuff + segment)
+                if is_valid(stuff + segment):
+                    new_out.append(stuff + segment)
         out = new_out
     return out
-
 
 def is_valid(cmd):
     for i in xrange(0, len(cmd)):
@@ -170,13 +217,10 @@ def is_valid(cmd):
 
 
 def combinations(a, n, include_0=True):
-    l = []
     for j in xrange(0, n + 1):
         if not include_0 and j == 0:
             continue
-        l += list(itertools.combinations(a, j))
-    return l
-
+        yield itertools.combinations(a, j)
 
 def diff(a, b):
     return list(set(a) - set(b))
@@ -186,4 +230,3 @@ if __name__ == '__main__':
     main()
 
 
-			
