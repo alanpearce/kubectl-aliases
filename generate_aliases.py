@@ -36,6 +36,7 @@ def main():
         ('ex', 'exec -i -t', None, None),
         ('lo', 'logs', None, None),
         ('lof', 'logs -f', None, None),
+        ('lop', 'logs -p', None, None),
         ('p', 'proxy', None, None),
         ('g', 'get', None, None),
         ('t', 'top', None, None),
