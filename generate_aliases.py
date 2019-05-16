@@ -114,6 +114,9 @@ def generate(cmds, ops, resources, args, positional_args):
             for res in resources:
                 if check_requirements([op], res[2]):
                     yield [cmd, op, res]
+                    for parg in positional_args:
+                        if is_compatible([op, res], parg[2], parg[3]):
+                                yield [cmd, op, res, parg]
                     for cset in combinations(args, len(args), include_0=False):
                         for combo in cset:
                             segment = list(combo)
