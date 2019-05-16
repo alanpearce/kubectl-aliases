@@ -125,6 +125,9 @@ def generate(cmds, ops, resources, args, positional_args):
                         # permutations?
                         if is_compatible([op, res], arg[2], arg[3]):
                             yield [cmd, op, res, arg]
+                            for parg in positional_args:
+                                if is_compatible([op, res, arg], parg[2], parg[3]):
+	                                yield [cmd, op, res, arg, parg]
 
 def is_compatible(parents, requirements, incompatibilities):
     return check_requirements(parents, requirements) and check_incompatibilities(parents, incompatibilities)
