@@ -43,6 +43,7 @@ def main():
         ('d', 'describe', None, None),
         ('rm', 'delete', None, None),
         ('run', 'run --rm --restart=Never --image-pull-policy=IfNotPresent -i -t', None, None),
+        ('rd', 'patch deployment -p "{\\"spec\\":{\\"template\\":{\\"metadata\\":{\\"labels\\":{\\"date\\":\\"$(date +%s)\\"}}}}}"', None, None)
         ]
 
     res = [
