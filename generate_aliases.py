@@ -61,6 +61,7 @@ def main():
         ('no', 'nodes', ['g', 'd', 't'], None),
         ('ns', 'namespaces', ['g', 'd', 'rm'], None),
         ('pdb', 'poddisruptionbudget', ['g', 'd', 'rm'], None),
+        ('pc', 'priorityclass', ['g', 'd', 'rm'], None),
         ('pv', 'persistentvolume', ['g', 'd', 'rm'], None),
         ('pvc', 'persistentvolumeclaim', ['g', 'd', 'rm'], None),
 	('ss', 'serviceaccount', ['g', 'd', 'rm'], None),
