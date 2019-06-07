@@ -56,6 +56,7 @@ def main():
         ('crb', 'clusterrolebinding', ['g', 'd', 'rm'], None),
         ('crd', 'customresourcedefinition', ['g', 'd', 'rm'], None),
         ('sec', 'secret', ['g', 'd', 'rm'], None),
+	('hpa', 'horizontalpodautoscaler', ['g', 'd', 'rm'], None),
         ('jo', 'jobs', ['g', 'd', 'rm'], None),
         ('cjo', 'cronjobs', ['g', 'd', 'rm'], None),
         ('no', 'nodes', ['g', 'd', 't'], None),
