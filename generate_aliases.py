@@ -54,6 +54,7 @@ def main():
         ('ing', 'ingress', ['g', 'd', 'e', 'rm'], None),
         ('cm', 'configmap', ['g', 'd', 'e', 'rm'], None),
         ('cr', 'clusterrole', ['g', 'd', 'e', 'rm'], None),
+        ('ev', 'event', ['g', 'd', 'e', 'rm'], None),
         ('crb', 'clusterrolebinding', ['g', 'd', 'e', 'rm'], None),
         ('crd', 'customresourcedefinition', ['g', 'd', 'e', 'rm'], None),
         ('sec', 'secret', ['g', 'd', 'e', 'rm'], None),

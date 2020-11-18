@@ -1,3 +1,18 @@
+# Copyright 2019 Google Inc.
+# Copyright 2019 Alan Pearce
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 alias k='kubectl'
 alias ka='kubectl apply --recursive -f'
 alias ke='kubectl edit'
@@ -7,6 +22,7 @@ alias kesvc='kubectl edit service'
 alias keing='kubectl edit ingress'
 alias kecm='kubectl edit configmap'
 alias kecr='kubectl edit clusterrole'
+alias keev='kubectl edit event'
 alias kecrb='kubectl edit clusterrolebinding'
 alias kecrd='kubectl edit customresourcedefinition'
 alias kesec='kubectl edit secret'
@@ -149,6 +165,24 @@ alias kgcroname='kubectl get clusterrole -o=name'
 alias kgcronamel='kubectl get clusterrole -o=name -l'
 alias kgcrall='kubectl get clusterrole --all-namespaces'
 alias kgcrallw='kubectl get clusterrole --all-namespaces --watch'
+alias kgev='kubectl get event'
+alias kgevw='kubectl get event --watch'
+alias kgevl='kubectl get event -l'
+alias kgevoyamll='kubectl get event -o=yaml -l'
+alias kgevowidel='kubectl get event -o=wide -l'
+alias kgevojsonl='kubectl get event -o=json -l'
+alias kgevonamel='kubectl get event -o=name -l'
+alias kgevallw='kubectl get event --all-namespaces --watch'
+alias kgevoyaml='kubectl get event -o=yaml'
+alias kgevoyamll='kubectl get event -o=yaml -l'
+alias kgevowide='kubectl get event -o=wide'
+alias kgevowidel='kubectl get event -o=wide -l'
+alias kgevojson='kubectl get event -o=json'
+alias kgevojsonl='kubectl get event -o=json -l'
+alias kgevoname='kubectl get event -o=name'
+alias kgevonamel='kubectl get event -o=name -l'
+alias kgevall='kubectl get event --all-namespaces'
+alias kgevallw='kubectl get event --all-namespaces --watch'
 alias kgcrb='kubectl get clusterrolebinding'
 alias kgcrbw='kubectl get clusterrolebinding --watch'
 alias kgcrbl='kubectl get clusterrolebinding -l'
@@ -421,6 +455,9 @@ alias kdcmall='kubectl describe configmap --all-namespaces'
 alias kdcr='kubectl describe clusterrole'
 alias kdcrl='kubectl describe clusterrole -l'
 alias kdcrall='kubectl describe clusterrole --all-namespaces'
+alias kdev='kubectl describe event'
+alias kdevl='kubectl describe event -l'
+alias kdevall='kubectl describe event --all-namespaces'
 alias kdcrb='kubectl describe clusterrolebinding'
 alias kdcrbl='kubectl describe clusterrolebinding -l'
 alias kdcrball='kubectl describe clusterrolebinding --all-namespaces'
@@ -481,6 +518,9 @@ alias krmcmall='kubectl delete configmap --all'
 alias krmcr='kubectl delete clusterrole'
 alias krmcrl='kubectl delete clusterrole -l'
 alias krmcrall='kubectl delete clusterrole --all'
+alias krmev='kubectl delete event'
+alias krmevl='kubectl delete event -l'
+alias krmevall='kubectl delete event --all'
 alias krmcrb='kubectl delete clusterrolebinding'
 alias krmcrbl='kubectl delete clusterrolebinding -l'
 alias krmcrball='kubectl delete clusterrolebinding --all'
